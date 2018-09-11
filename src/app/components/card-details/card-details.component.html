@@ -1,0 +1,29 @@
+<div class="row mt-4 d-flex flex-row-reverse">
+  <div class="col-9">
+    <div class="card">
+      <img class="card-img-top" src="{{character.thumbnail}}" alt="image character">
+      <div class="card-body">
+        <h2 class="card-title">{{ character.name }}</h2>
+        <ul>
+          <li>{{ character.age }} years old </li>
+          <li>{{ character.hair_color }} hair color </li>
+          <li>{{ character.weight | number : '.2-2' }} kg - {{ character.height | number : '.2-2'}} cm</li>
+
+          <li *ngIf="character.friends.length > 1">Friends:
+            <span class="badge badge-info" *ngFor="let friend of character?.friends">{{friend}}</span>
+          </li>
+          <li *ngIf="character.professions.length > 1">Professions:
+            <span class="badge badge-info" *ngFor="let profession of character.professions">{{profession}}</span>
+          </li>
+
+        </ul>
+      </div>
+      <div class="card-footer d-flex flex-row-reverse">
+        <button class="btn btn-warning btn-lg">
+          <span routerLink="/">
+            <i class="fas fa-angle-double-left"></i> Go Back!</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

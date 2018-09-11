@@ -1,0 +1,38 @@
+.row {
+  .card {
+    .container_thumb {
+      margin-right: auto !important;
+      margin-left: 14%;
+    }
+    img {
+      min-width: 220px;
+      min-height: 220px;
+    }
+  }
+}
+
+div.col-4.container_thumb>img {
+  width: 220px;
+  height: 220px;
+}
+
+.badge {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+input {
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px;
+  background-color: #222;
+  border-style: none;
+  color: #fff;
+  height: 2.5rem;
+  width: 100%;
+  padding-left: 8px;
+}
+
+::-webkit-input-placeholder {
+  color: #fff;
+}

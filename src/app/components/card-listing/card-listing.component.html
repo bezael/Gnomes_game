@@ -1,0 +1,62 @@
+<!-- :TODO this nav will be a independet component -->
+<nav class="nav_gnome mt-3">
+  <div class="nav_gnome_container">
+    <div class="search">
+      <input type="text" placeholder="Search by age..." [(ngModel)]="filter_age">
+    </div>
+  </div>
+</nav>
+<!-- :TODO this nav will be a independet component -->
+<div class="row py-2">
+  <div class="col-md-4 mb-4" *ngFor="let card of cardsListing | paginate: { itemsPerPage: 9, currentPage: p } | filter:filter_age:'age'; let i = index">
+    <div class="card h-100 border-info">
+      <div class="col-12 d-flex flex-column">
+        <div class="row bg-faded py-5">
+          <div class="col-4 container_thumb">
+            <img class="rounded-circle img-fluid bg-info" src="{{card.thumbnail}}">
+          </div>
+          <div class="col-12 text-center">
+            <h3>
+              <a routerLink="/character/{{card.id}}">{{card.name}}</a>
+            </h3>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-12 py-3">
+            <p>
+              {{card.name}} has {{card.age}} years old, and {{card.friends.length}} friends. {{card.hair_color}} hair color
+            </p>
+          </div>
+        </div>
+        <div class="row no-gutters mt-auto mb-2 justify-content-center">
+          <div class="col-4 text-center">
+            <i class="fas fa-birthday-cake"></i>
+            <br>Age
+            <h4>{{card.age}}</h4>
+          </div>
+          <div class="col-4 text-center">
+            <i class="fas fa-weight"></i>
+            <br>Weight
+            <h4>{{card.weight | number: '.2-2'}}</h4>
+          </div>
+          <div class="col-4 text-center">
+            <i class="fas fa-user"></i>
+            <br>Height
+            <h4>{{card.height | number: '.2-2'}}</h4>
+          </div>
+        </div>
+        <div class="row no-gutters mt-auto mb-2 justify-content-center">
+          <div class="col-12 text-center">
+            <span class="badge badge-info" *ngFor="let friend of card.friends">{{friend}}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <nav aria-label="Page navigation example">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </nav>
+</div>
+<!--/row-->
