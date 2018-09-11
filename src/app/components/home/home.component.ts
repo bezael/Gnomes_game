@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     this.loader.show();
     setTimeout(() => {
       this.loader.hide();
-    }, 2000);
+    }, 2500);
   }
 
 }
